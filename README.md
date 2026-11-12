@@ -29,7 +29,7 @@ You've now downloaded and example Story Map built for this class that you will e
 Let's get familiar with the directory (folder) structure of this project. Inside the project directory (mine is named `leaflet-storymap-tutorial`, yours will be whatever you named the repository). You will find 8 subfolders and 7 files in this folder:
 
 <p align="center">
-  <img src="./tutorial_images/projectStructure.png" title="Getting the files on your machine." width="45%" >
+  <img src="./tutorial_images/projectStructure.png" title="Getting the files on your machine." width="30%" >
 </p> 
 
 The Google Sheet Leaflet Story Map supports images, audio and video embeddings, and Leaflet TileLayer/geojson overlays. These different types of media get put in their own folders to be used by the code in `/scripts`. The main folder you will interact with for this tutorial is `/media`. This is where any images, audio, or video files get uploaded for use in the Story Map.
@@ -69,10 +69,12 @@ It's time to run the site! Follow the same process you use for other class labs 
 
 The storymap created for this tutorial will explore the major locations from Frankenstein. It's ok if you aren't familiar with the story - you'll still be able to add new data.
 
+*Note:* The embedded video may not work for you when viewing the site locally. If you see an error, check out what it looks like on my deployed page [here](https://kmikitin.github.io/leaflet-storymap-tutorial/#4). The issue has to do with a static page attempting to fetch the data, the page can't be verified because it only exists locally. It's nothing to worry about though!
+
 Now it's time to head over to the Story Map, the rest of the tutorial picks up there.
 
 
-#### IMPORTANT FOR WHEN YOU MAKE YOUR OWN STORY MAP
+## IMPORTANT for when you make your own Story Map
 **To finalize your map, you need to either:**
 - Download each Google Sheets tab as a CSV file and upload into the `csv` subfolder in this repository
 
@@ -81,7 +83,7 @@ OR
 
 The current API key in that file is from the original tutorial. It is recommended to get your own when running your own project. The same is true for the Stadia basemap API key - that one is from my account but to continue to use it you would replace it with your own API key.
 
-### For Further Learning
+## For Further Learning
 - Check out the original tutorial in [*Hands-On Data Visualization*](https://HandsOnDataViz.org/leaflet-storymaps-with-google-sheets.html)
   - The [whole book](https://handsondataviz.org/) is actually very good
 - [How to set up your Google API Key](https://support.google.com/googleapi/answer/6158862?hl=en)
