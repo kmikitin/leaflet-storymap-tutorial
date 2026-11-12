@@ -1,3 +1,8 @@
+/* 
+Don't make changes here. This file applies a specific layout
+for screens that are 768px or wider. For screens smaller than
+than this the styling in style.css will be used.
+*/
 @media screen and (min-width: 768px) {
 
   #narration {

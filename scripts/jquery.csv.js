@@ -1,4 +1,7 @@
 /**
+ * NOTE: There is no need to make any changes to this file, it should 'just work'.
+ * jQuery allows us to manipulate html more easily than with just JavaScript.
+ * 
  * jQuery-csv (jQuery Plugin)
  *
  * This document is licensed as free software under the terms of the

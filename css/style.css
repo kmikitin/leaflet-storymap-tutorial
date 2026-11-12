@@ -1,3 +1,7 @@
+/* 
+Making changes in this file will allow you to customize the way your
+storymap looks.
+*/
 body {
   padding: 0px;
   margin: 0px;
@@ -55,6 +59,9 @@ body {
   visibility: hidden;
   font-weight: bold;
   text-align: center;
+  font-family: "Pirata One", system-ui; /* This controls the font style */
+  font-weight: 400;
+  font-style: normal;
 }
 
 .chapter-container {
@@ -98,17 +105,19 @@ body {
 .chapter-header {
   display: block;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.6em;
+  font-family: "Pirata One", system-ui;
+  font-weight: bold;
   padding: 0 5px;
 }
 
 .source {
   font-size: 9pt;
   font-style: italic;
-  color: gray;
+  color: white;
 }
 a.source:visited {
-  color: grey;
+  color: orange;
 }
 
 .description {
@@ -135,14 +144,14 @@ a.source:visited {
 }
 
 /*
-  By default, current (active) marker is orange.
+  By default, current (active) marker is green, the original code has it set to orange.
   If you want to change the color, see options here: https://github.com/coryasilva/Leaflet.ExtraMarkers/blob/master/src/assets/css/leaflet.extra-markers.css
 */
 .marker-active {
-  background-position: -72px 0 !important;
+  background-position: -396px 0 !important;
 }
 
-/* Storymap logo image above the title */
+/* Logo image above the title */
 #logo {
   height: 30px;
   line-height: 30px;
@@ -160,7 +169,7 @@ a.source:visited {
 #header {
   padding: 5px 0;
   text-align: center;
-  color: #333;
+  color: #ffffff;
 }
 
 /* Storymap title & subtitle */

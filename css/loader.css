@@ -1,4 +1,9 @@
 /* CSS Loader */
+/* 
+This file is the styling of the loader that shows while
+the storymap is fetching data and loading. There's no
+need to make changes to this file.
+*/
 .loader,
 .loader:before,
 .loader:after {

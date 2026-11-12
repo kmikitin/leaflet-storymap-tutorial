@@ -4,8 +4,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
-  <link rel="icon" type="image/png" href="./favicon.png">
-  <title>Leaflet Storymaps with Google Sheets Template</title>
+  <link rel="icon" type="image/png" href="./media/frankenstein.png">
+  <title>Geography of Frankenstein</title>
 
   <!-- Load Leaflet CSS and JS-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -23,12 +23,18 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
 
   <!-- Load Lightbox -->
+  <!-- Lighbox is a JavaScript plugin that enables seeing media in an englarged overlay. -->
   <script src="scripts/lightbox/js/lightbox.js"></script>
   <link rel="stylesheet" href="scripts/lightbox/css/lightbox.css" />
 
   <!-- Load Font-Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="markers/leaflet.extra-markers.min.css">
+  <!-- Load the specialized font from Google for Frankenstein -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap">
+  <!-- Load custom CSS files -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style-desktop.css">
   <link rel="stylesheet" href="css/loader.css">
@@ -65,6 +71,8 @@
   <script type="text/javascript" src="markers/leaflet.extra-markers.min.js"></script>
   <script type="text/javascript" src="scripts/constants.js"></script>
   <script type="text/javascript" src="scripts/jquery.csv.js"></script>
+  <!-- This is the core script for our storymap app. Since there is a lot more code than we
+   usually work with, it's been kept in a separate file. -->
   <script type="text/javascript" src="scripts/storymap.js"></script>
 
 </body>

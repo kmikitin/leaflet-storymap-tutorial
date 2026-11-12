@@ -1,59 +1,97 @@
-# Leaflet Storymaps with Google Sheets
-Customize your Leaflet story map with linked Google Sheets template and scrolling narrative.
-Supports images, audio and video embeddings, and Leaflet TileLayer/geojson overlays.
+![](./tutorial_images/projectHeader.png)
+# Creating Leaflet Story Maps using Google Sheets
+Welcome to the tutorial on how to create and customize a Leaflet Story Map using a Google Sheets template! By the end of this tutorial you should be able to:
+- identify the parts of this repository
+- know which parts of the repository you will need to interact with to create your map
+- understand what each column in the provided Google Sheet template is for
+- create a few of your own Story Map entries for the example Frankenstein Story Map
+- know where to go for futher learning
+
+Note that this tutorial is written the the style common for coding tutorials - which is using a `README` file at the root of the project to walk you through the steps. If you chose to do more programming you'll likely come accross this again!
+
+## Start Here
+Your first step is to get your own copy of this repository. In the upper righthand corner of this page you should see a green drop down That says `Use this template`. Click that button and select `Create a new repository`.
+
+<a align="center">
+  <img src="./tutorial_images/githubscreenshot.png" title="How to copy the repository" width="100%">
+</a>
+
+Name the repository what you want and then click `Create repository`.
+
+In your copy, click the green `< > Code` button and download the the ZIP, as shown in the image below.
+<p align="center">
+  <img src="./tutorial_images/downloadFiles.png" title="Getting the files on your machine." width="75%" >
+</p> 
+
+You've now downloaded and example Story Map built for this class that you will extend. Open the repository in your editor of choice. 
+
+## Code Tour
+Let's get familiar with the directory (folder) structure of this project. Inside the project directory (mine is named `leaflet-storymap-tutorial`, yours will be whatever you named the repository). You will find 8 subfolders and 7 files in this folder:
 
 <p align="center">
-  <img src="./leaflet-storymaps-demo.gif" title="Storymaps demo" width="100%" />
+  <img src="./tutorial_images/projectStructure.png" title="Getting the files on your machine." width="45%" >
+</p> 
+
+The Google Sheet Leaflet Story Map supports images, audio and video embeddings, and Leaflet TileLayer/geojson overlays. These different types of media get put in their own folders to be used by the code in `/scripts`. The main folder you will interact with for this tutorial is `/media`. This is where any images, audio, or video files get uploaded for use in the Story Map.
+
+You'll notice that just like our class projects, this one has an [`index.html`](index.html) file at the root. Open the file and read through the structure, I've included some comments for guidance. Because the project is powered by a Google Sheet, you won't need to make any changes to this file.
+
+Did you notice that there isn't much JavaScript, but that the file loads other script files in the repository? The scripts for this project are quite long and involved so they are in their own files to keep the project tidy. [`storymap.js`](./scripts/storymap.js) is worth taking a look at, this is the primary engine for the Story Map.
+
+### Keep Exploring
+Poke around and look at some of the other scripts and css files. Comments have been added to explain what the files are for. I've also left comments inline from the creators that explain what specific lines do. You won't need to change anything in code for the tutorial but if you want to create your own project knowing which parts of the css files will allow you to customize your project is worthwhile.
+
+## Google Sheet Template Tour
+Head to the [spreadsheet](https://docs.google.com/spreadsheets/d/1a_WFP-1PkGYUZJFvlXjJRDxZvkkTBtxsrK_J8snkCkI/edit?gid=1033046795#gid=1033046795). You should be on the `Options` tab when it loads:
+
+<p align="center">
+  <img src="./tutorial_images/optionsTab.png" title="Getting the files on your machine." width="75%" >
+</p> 
+
+The Options control the appearance of the Story Map. There are explanations for each of the options in the `Hints` column. The `Map Settings` section allows you to do some light customization. For anything more complex you'll need to edit the css file directly (this is not required though, this will work without changes). For your own project if you use this template I recommend you change the [`Font-Family`](./css/style.css#L62) back to something more generic. I customized this for the tutorial.
+
+Most importantly these Setting names directly relate to the constants [here](./scripts/constants.js). It's very important that you don't change these names, only make changes to the Customize column.
+
+Now we'll take a look at the `Chapters` tab:
+
+<p align="center">
+  <img src="./tutorial_images/chaptersTab.png" title="Getting the files on your machine." width="75%" >
 </p>
 
-## Live links (replace with your own)
-- Leaflet Map https://handsondataviz.github.io/leaflet-storymaps-with-google-sheets/
-- Google Sheets template https://docs.google.com/spreadsheets/d/1AO6XHL_0JafWZF4KEejkdDNqfuZWUk3SlNlQ6MjlRFM/edit#gid=0
+Each row is a chapter, which is a section of the map. Each chapter contains the text of the story (description), links to media, and data about each point on the map. In the next section when you begin the walkthrough you'll be asked to make changes to the data in this tab.
 
-## Create Your Own
-- See step-by-step tutorial in *Hands-On Data Visualization* https://HandsOnDataViz.org/leaflet-storymaps-with-google-sheets.html
+## View the Site to Complete the Tutorial
+It's time to run the site! Follow the same process you use for other class labs to view the site. 
 
-#### Geocode your address data with Google Sheets add-on
-To geocode (find latitude and longitude coordinates), we recommend installing the free [Geocoding by SmartMonkey add-on for Google Sheets](https://gsuite.google.com/marketplace/app/geocoding_by_smartmonkey/1033231575312). Insert your addresses in place of the samples in the Geocoding Details tab, then use Add-Ons > Geocoding > Geocode Details menu. Learn more in *Hands-On Data Visualization* https://handsondataviz.org/geocode.html
+📝 - this indicates a note for the tutorial, explaining various features
 
-![Geocoding](geocode.png)
+🫵 - this indicates when it's your turn to try something out
 
-#### To finalize your map, you need to either:
-- Download each Google Sheets tab as a CSV file and upload into a `csv` subfolder in your GitHub repo
-  - OR
+The storymap created for this tutorial will explore the major locations from Frankenstein. It's ok if you aren't familiar with the story - you'll still be able to add new data.
+
+Now it's time to head over to the Story Map, the rest of the tutorial picks up there.
+
+
+#### IMPORTANT FOR WHEN YOU MAKE YOUR OWN STORY MAP
+**To finalize your map, you need to either:**
+- Download each Google Sheets tab as a CSV file and upload into the `csv` subfolder in this repository
+
+OR
 - Get your own Google Sheets API Key to insert into `google-doc-url.js`
 
-See more in the tutorial https://handsondataviz.org/leaflet-storymaps-with-google-sheets.html
+The current API key in that file is from the original tutorial. It is recommended to get your own when running your own project. The same is true for the Stadia basemap API key - that one is from my account but to continue to use it you would replace it with your own API key.
 
-## Update your code to address CARTO API KEY issues after September 2026
-If you used our code to create a map prior to September 2026, you may need to update your version to address a CARTO API KEY MISSING issue that prevents basemap tiles from displaying. See details in the [Get Your CARTO Basemaps API Key](https://handsondataviz.org/carto-basemaps-api-key.html) section of our book.
-
-## Update your code for any pre-October 2020 storymaps before January 2021
-If you used our code to create a storymap prior to October 2020, you will need to update your version before January 26, 2021 for it to continue to work. Google announced that it will [migrate from Google Sheets API v3 to v4 in Jan 2021](https://developers.google.com/sheets/api/v3), and we released our update of Leaflet storymaps code v1.2 on September 29th to address Google's changes.
-
-Three options to update your code:
-
-Option A: If you understand (or are willing to learn about) [GitHub Desktop](https://handsondataviz.org/github-desktop-atom.html), use it to move copies of the newer code (index.html, scripts folder, markers folder, style.css, etc.) into your repo via your local computer. In the `google-doc-url.js` file, copy and paste the Google Sheets API key that appears in the lower half of our code, but keep your own Google Sheets ID that appears in the upper-half of your code.
-
-OR
-
-Option B: If you originally "forked" a copy of our code, create a GitHub "pull request" to update your repo with our code revisions, including the Google Sheets API key. We recommend this option only if you understand (or are willing to learn about) GitHub pull requests, and can deal with resolving conflicts between your code and our updated code.
-Warning: Since this operation might overwrite some of your code, go to *Code > Download ZIP* to make a backup to your local computer.
-1. Log into the web interface of your GitHub storymap repository.
-2. Click *Pull requests* and click the green button for a *New pull request*.
-3. On the *Comparing Changes* page, use the menus to pull code *into* your repo *from* the original repo, named HandsOnDataViz/leaflet-storymaps-with-google-sheets. GitHub may warn that you cannot automatically merge the files, but proceed anyways.
-4. You may need to click the *Resolve conflicts* button on the next screen, which means you need to sort out which portions of your code to keep and which portions of our code to accept. Generally speaking, you should accept our updates for index.html, style.css, and most scripts.js, while keeping your own content for README.md, media, and geojson folder content. In the google-doc-url.js file, you should keep your own Google Sheet ID, but temporarily add our Google Sheets API key until you create your own. In GitHub, you can resolve code conflicts by deleting/keeping lines in specific files.
-
-OR
-
-Option C: Start over with a brand-new repo, and migrate your existing map content. Make a copy of our newer code by clicking the green 'Use template' button. Migrate any media folder or geodata folder content from your old repo to your new repo, by downloading to your local computer and uploading to GitHub. Reconnect your Google Sheet ID to the `google-doc-url.js` file in your new repo.
-
-Email us at [HandsOnDataViz@gmail.com](handsondataviz@gmail.com) if you need assistance with updating your code.
+### For Further Learning
+- Check out the original tutorial in [*Hands-On Data Visualization*](https://HandsOnDataViz.org/leaflet-storymaps-with-google-sheets.html)
+  - The [whole book](https://handsondataviz.org/) is actually very good
+- [How to set up your Google API Key](https://support.google.com/googleapi/answer/6158862?hl=en)
+- [Managing Stadia Maps API Keys](https://docs.stadiamaps.com/authentication/#api-keys)
+- [More on what Lightbox JS is](https://en.wikipedia.org/wiki/Lightbox_(JavaScript))
 
 ## Credits (and licenses)
-Developed by [Ilya Ilyankou](https://github.com/ilyankou) and [Jack Dougherty](https://github.com/jackdougherty) with support from Connecticut Humanities and Trinity College, CT. Inspired by Code for Atlanta mapsfor.us (2016) https://github.com/codeforatlanta/mapsforus (BSD-3-Clause). Adapted from MUX Lab, Map Effects 100: https://github.com/muxlab/map-effects-100, see http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html.
+Original code developed by [Ilya Ilyankou](https://github.com/ilyankou) and [Jack Dougherty](https://github.com/jackdougherty) with support from Connecticut Humanities and Trinity College, CT. Inspired by Code for Atlanta mapsfor.us (2016) https://github.com/codeforatlanta/mapsforus (BSD-3-Clause). Adapted from MUX Lab, Map Effects 100: https://github.com/muxlab/map-effects-100, see http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html.
 
-We use [Google Sheets API version 4](https://developers.google.com/sheets/api), with these open-source components:
+Uses [Google Sheets API version 4](https://developers.google.com/sheets/api), with these open-source components:
 
 - Leaflet v1.7.1 https://leafletjs.com (BSD-2-Clause)
 - jQuery v3.5.1 https://code.jquery.com (MIT)

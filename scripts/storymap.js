@@ -37,7 +37,7 @@ $(window).on('load', function() {
         })
 
       } else {
-        alert('You load data from a Google Sheet, you need to add a free Google API key')
+        alert('In order to load data from a Google Sheet, you need to add a free Google API key')
       }
 
     } else {
@@ -45,7 +45,6 @@ $(window).on('load', function() {
     }
 
   })
-
 
 
   /**
@@ -84,15 +83,26 @@ $(window).on('load', function() {
    */
   function addBaseMap() {
     var basemap = trySetting('_tileProvider', 'Stamen.TonerLite');
-    L.tileLayer.provider(basemap, {
+    var tileApiKey = trySetting('_tileProviderApiKey', '');
+    var tileOptions = {
       maxZoom: 18,
-      
-      // Pass the api key to most commonly used parameters
-      apiKey: trySetting('_tileProviderApiKey', ''),
-      apikey: trySetting('_tileProviderApiKey', ''),
-      key: trySetting('_tileProviderApiKey', ''),
-      accessToken: trySetting('_tileProviderApiKey', '')
-    }).addTo(map);
+      apiKey: tileApiKey,
+      apikey: tileApiKey,
+      key: tileApiKey,
+      accessToken: tileApiKey
+    };
+
+    // Add better handling for Stadia basemaps, formatting for these is specific
+    if (basemap.indexOf('Stadia.') === 0 && tileApiKey) {
+      var stadia = L.TileLayer.Provider.providers.Stadia;
+      var variant = stadia.variants[basemap.split('.')[1]];
+      var variantOptions = typeof variant === 'string' ? { variant: variant } : variant.options;
+      var tileUrl = (variant.url || stadia.url) + '?api_key=' + encodeURIComponent(tileApiKey);
+
+      L.tileLayer(tileUrl, L.Util.extend({}, stadia.options, variantOptions, tileOptions)).addTo(map);
+    } else {
+      L.tileLayer.provider(basemap, tileOptions).addTo(map);
+    }
   }
 
   function initMap(options, chapters) {
@@ -284,11 +294,14 @@ $(window).on('load', function() {
     }
     pixelsAbove.push(Number.MAX_VALUE);
 
+    var initialHashChapter = parseInt(location.hash.substr(1));
+    var isInitialNavigation = true;
+
     $('div#contents').scroll(function() {
       var currentPosition = $(this).scrollTop();
 
       // Make title disappear on scroll
-      if (currentPosition < 200) {
+      if ((!isInitialNavigation || initialHashChapter) && currentPosition < 200) {
         $('#title').css('opacity', 1 - Math.min(1, currentPosition / 100));
       }
 
@@ -447,14 +460,18 @@ $(window).on('load', function() {
     $('div.loader').css('visibility', 'hidden');
 
     $('div#container0').addClass("in-focus");
-    $('div#contents').animate({scrollTop: '1px'});
+    $('div#contents').animate({scrollTop: '1px'}, function() {
+      if (!initialHashChapter) isInitialNavigation = false;
+    });
 
     // On first load, check hash and if it contains an number, scroll down
-    if (parseInt(location.hash.substr(1))) {
-      var containerId = parseInt( location.hash.substr(1) ) - 1;
+    if (initialHashChapter) {
+      var containerId = initialHashChapter - 1;
       $('#contents').animate({
         scrollTop: $('#container' + containerId).offset().top
-      }, 2000);
+      }, 2000, function() {
+        isInitialNavigation = false;
+      });
     }
 
     // Add Google Analytics if the ID exists
