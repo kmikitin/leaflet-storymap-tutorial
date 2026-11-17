@@ -10,23 +10,23 @@ Welcome to the tutorial on how to create and customize a Leaflet Story Map using
 Note that this tutorial is written the the style common for coding tutorials - which is using a `README` file at the root of the project to walk you through the steps. If you chose to do more programming you'll likely come accross this again!
 
 ## Start Here
-Your first step is to get your own copy of this repository. In the upper righthand corner of this page you should see a green drop down That says `Use this template`. Click that button and select `Create a new repository`.
+Your first step is to get your own copy of this repository. In the upper righthand corner of this page you should see a green drop down That says `< > Code`. Click that button and select `Download ZIP`.
 
-<a align="center">
-  <img src="./tutorial_images/githubscreenshot.png" title="How to copy the repository" width="100%">
-</a>
-
-Name the repository what you want and then click `Create repository`.
-
-In your copy, click the green `< > Code` button and download the the ZIP, as shown in the image below.
 <p align="center">
   <img src="./tutorial_images/downloadFiles.png" title="Getting the files on your machine." width="75%" >
 </p> 
 
-You've now downloaded and example Story Map built for this class that you will extend. Open the repository in your editor of choice. 
+You've now downloaded an example Story Map built for this class that you will extend. Open the repository in your editor of choice. 
+
+You may either continue reading the rest of the steps here, or you can open the README of the code you just downloaded and continue that way, whichever is easier.
+
+### Get your copy of the data
+The data for this Story Map in stored in a Google Sheet, which you will find [here](https://docs.google.com/spreadsheets/d/1PrOIgu3l5IqBHoEoWAfeAyHRs0ImCaiuHrT86Xg5ggI/edit?usp=sharing)
+
+Make your own copy so that you have it accessible in your Drive. We'll come back to this spreadsheet soon.
 
 ## Code Tour
-Let's get familiar with the directory (folder) structure of this project. Inside the project directory (mine is named `leaflet-storymap-tutorial`, yours will be whatever you named the repository). You will find 8 subfolders and 7 files in this folder:
+Let's get familiar with the directory (folder) structure of this project. Inside the project directory you will find 8 subfolders and 7 files:
 
 <p align="center">
   <img src="./tutorial_images/projectStructure.png" title="Getting the files on your machine." width="30%" >
@@ -39,10 +39,10 @@ You'll notice that just like our class projects, this one has an [`index.html`](
 Did you notice that there isn't much JavaScript, but that the file loads other script files in the repository? The scripts for this project are quite long and involved so they are in their own files to keep the project tidy. [`storymap.js`](./scripts/storymap.js) is worth taking a look at, this is the primary engine for the Story Map.
 
 ### Keep Exploring
-Poke around and look at some of the other scripts and css files. Comments have been added to explain what the files are for. I've also left comments inline from the creators that explain what specific lines do. You won't need to change anything in code for the tutorial but if you want to create your own project knowing which parts of the css files will allow you to customize your project is worthwhile.
+Poke around and look at some of the other scripts and css files. Comments have been added to explain what the files are for. I've also left comments inline from the creators that explain what specific lines do. You won't need to change anything in code for the tutorial, but if you want to create your own project knowing which parts of the css files will allow you to customize your project is worthwhile.
 
 ## Google Sheet Template Tour
-Head to the [spreadsheet](https://docs.google.com/spreadsheets/d/1a_WFP-1PkGYUZJFvlXjJRDxZvkkTBtxsrK_J8snkCkI/edit?gid=1033046795#gid=1033046795). You should be on the `Options` tab when it loads:
+Head to your copy of the spreadsheet (which you should have from [this step](#get-your-copy-of-the-data)), and open the `Options` tab, which looks like the following:
 
 <p align="center">
   <img src="./tutorial_images/optionsTab.png" title="Getting the files on your machine." width="75%" >
@@ -60,12 +60,19 @@ Now we'll take a look at the `Chapters` tab:
 
 Each row is a chapter, which is a section of the map. Each chapter contains the text of the story (description), links to media, and data about each point on the map. In the next section when you begin the walkthrough you'll be asked to make changes to the data in this tab.
 
+### DO THIS NOW
+Copy the URL for your spreadsheet and replace the link on line 5 of [google-doc-url.js](google-doc-url.js). 
+
 ## View the Site to Complete the Tutorial
-It's time to run the site! Follow the same process you use for other class labs to view the site. 
+It's time to run the site! Follow the same process you use for other class labs to view the site, so open the `index.html` file in the browser.
+
+As you read through the chapters you will see the following indicators:
 
 📝 - this indicates a note for the tutorial, explaining various features
 
 🫵 - this indicates when it's your turn to try something out
+
+The process will go something like this: 🫵 will give you an instruction of something to do in the Google Sheet. Once you have updated the Google Sheet come back to your `index.html` file in the browser and refresh it, your change should then be visible. If you don't see an update, it might be because you aren't referencing your own Google Sheet, in which case try [this step](#do-this-now) again.
 
 The storymap created for this tutorial will explore the major locations from Frankenstein. It's ok if you aren't familiar with the story - you'll still be able to add new data.
 
@@ -79,9 +86,11 @@ Now it's time to head over to the Story Map, the rest of the tutorial picks up t
 - Download each Google Sheets tab as a CSV file and upload into the `csv` subfolder in this repository
 
 OR
-- Get your own Google Sheets API Key to insert into `google-doc-url.js`
+- Get your own Google Sheets API Key to insert into `google-doc-url.js` and use the sheet URL
 
-The current API key in that file is from the original tutorial. It is recommended to get your own when running your own project. The same is true for the Stadia basemap API key - that one is from my account but to continue to use it you would replace it with your own API key.
+For the tutorial we go the route of using the API key & URL.
+
+The current API key in `google-doc-url.js` is from the original tutorial. It is recommended to get your own when running your own project. The same is true for the Stadia basemap API key - that one is from my account but to continue to use it you would replace it with your own API key.
 
 ## For Further Learning
 - Check out the original tutorial in [*Hands-On Data Visualization*](https://HandsOnDataViz.org/leaflet-storymaps-with-google-sheets.html)
