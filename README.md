@@ -23,7 +23,13 @@ You may either continue reading the rest of the steps here, or you can open the 
 ### Get your copy of the data
 The data for this Story Map in stored in a Google Sheet, which you will find [here](https://docs.google.com/spreadsheets/d/1PrOIgu3l5IqBHoEoWAfeAyHRs0ImCaiuHrT86Xg5ggI/edit?usp=sharing)
 
-Make your own copy so that you have it accessible in your Drive. We'll come back to this spreadsheet soon.
+Make your own copy so that you have it accessible in your Drive. In your copy click `Share` and then update the permissions to `Anyone with the link` as a `Viewer`.
+
+<p align="center">
+  <img src="./tutorial_images/sharingPermissions.png" title="Getting the files on your machine." width="50%" >
+</p> 
+
+We'll come back to this spreadsheet soon.
 
 ## Code Tour
 Let's get familiar with the directory (folder) structure of this project. Inside the project directory you will find 8 subfolders and 7 files:
@@ -61,7 +67,7 @@ Now we'll take a look at the `Chapters` tab:
 Each row is a chapter, which is a section of the map. Each chapter contains the text of the story (description), links to media, and data about each point on the map. In the next section when you begin the walkthrough you'll be asked to make changes to the data in this tab.
 
 ### DO THIS NOW
-Copy the URL for your spreadsheet and replace the link on line 5 of [google-doc-url.js](google-doc-url.js). 
+Copy the URL for your spreadsheet and replace the link on line 5 of [google-doc-url.js](google-doc-url.js).
 
 ## View the Site to Complete the Tutorial
 It's time to run the site! Follow the same process you use for other class labs to view the site, so open the `index.html` file in the browser.
